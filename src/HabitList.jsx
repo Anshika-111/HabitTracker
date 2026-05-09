@@ -1,4 +1,4 @@
-function HabitList({habits, toggle}){
+function HabitList({habits, toggle, deleteHabit}){
     function streakCalc(dates){
         let streak = 0
         let currentDate = new Date()
@@ -22,6 +22,7 @@ function HabitList({habits, toggle}){
         }
         return last7
     }
+    if(habits.length === 0) return <p>No habits yet. Add one above!</p>
     return(
         <div>
             <h1>Habit List Works</h1>
@@ -33,6 +34,7 @@ function HabitList({habits, toggle}){
                 {getLast7days().map(date => 
                     habit.completedDates.includes(date) ? <span key={date}>●</span> :<span key={date}>○</span>
                 )}
+                <button onClick={() => deleteHabit(habit.id)}>Delete</button>
                 </li>
                 )}
             </ul>

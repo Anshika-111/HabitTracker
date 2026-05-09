@@ -23,6 +23,11 @@ function App(){
     ))
   }
   
+  function deleteHabit(id){
+    let newHabits 
+    newHabits = habits.filter(habit => habit.id !== id)
+    setHabits(newHabits)
+  }
   useEffect(() => {
     if(habits.length > 0){
       localStorage.setItem("habits", JSON.stringify(habits))
@@ -39,7 +44,7 @@ function App(){
     <div>
       <h1>Habit Tracker</h1>
       <AddHabit onAdd = {addHabit}/>
-      <HabitList habits = {habits} toggle = {toggleHabit}/>
+      <HabitList habits = {habits} toggle = {toggleHabit} deleteHabit = {deleteHabit}/>
     </div>
   )
 }
