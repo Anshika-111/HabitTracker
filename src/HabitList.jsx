@@ -12,6 +12,16 @@ function HabitList({habits, toggle}){
         }
         return streak
     }
+
+    function getLast7days(){
+        let currentDate = new Date()
+        const last7 = []
+        while(last7.length < 7){
+            last7.push(currentDate.toDateString())
+            currentDate = new Date(currentDate - 86400000)
+        }
+        return last7
+    }
     return(
         <div>
             <h1>Habit List Works</h1>
@@ -20,6 +30,9 @@ function HabitList({habits, toggle}){
                 <li key={habit.id}>{habit.name} 
                 <button onClick={() => toggle(habit.id)}>Done</button> 
                 🔥 {streakCalc(habit.completedDates)}
+                {getLast7days().map(date => 
+                    habit.completedDates.includes(date) ? <span key={date}>●</span> :<span key={date}>○</span>
+                )}
                 </li>
                 )}
             </ul>
