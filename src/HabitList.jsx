@@ -28,13 +28,13 @@ function HabitList({habits, toggle, deleteHabit}){
             <ul className="habit-list">
                 {habits.map(habit => 
                 <li className="habit-item" key={habit.id}>{habit.name} 
-                <button className="done-btn" onClick={() => toggle(habit.id)}>Done</button> 
-                🔥 {streakCalc(habit.completedDates)}
                 <div className="dots-row">
                 {getLast7days().map(date => 
                     habit.completedDates.includes(date) ? <span key={date}>●</span> :<span key={date}>○</span>
                 )}
                 </div>
+                <button className="done-btn" onClick={() => toggle(habit.id)}>Done</button> 
+                🔥 {streakCalc(habit.completedDates)}
                 <button className="delete-btn" onClick={() => deleteHabit(habit.id)}>Delete</button>
                 </li>
                 )}
