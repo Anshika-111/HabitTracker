@@ -33,8 +33,8 @@ function HabitList({habits, toggle, deleteHabit}){
                     habit.completedDates.includes(date) ? <span key={date}>●</span> :<span key={date}>○</span>
                 )}
                 </div>
-                <button className="done-btn" onClick={() => toggle(habit.id)}>Done</button> 
                 🔥 {streakCalc(habit.completedDates)}
+                <button className="done-btn" onClick={() => toggle(habit.id)}>Done</button> 
                 <button className="delete-btn" onClick={() => deleteHabit(habit.id)}>Delete</button>
                 </li>
                 )}

@@ -41,7 +41,7 @@ function App(){
     }
   }, [])
   return(
-    <div>
+    <div className="container">
       <h1>Habit Tracker</h1>
       <AddHabit onAdd = {addHabit}/>
       <HabitList habits = {habits} toggle = {toggleHabit} deleteHabit = {deleteHabit}/>
