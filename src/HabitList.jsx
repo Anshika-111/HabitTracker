@@ -25,16 +25,17 @@ function HabitList({habits, toggle, deleteHabit}){
     if(habits.length === 0) return <p>No habits yet. Add one above!</p>
     return(
         <div>
-            <h1>Habit List Works</h1>
-            <ul>
+            <ul className="habit-list">
                 {habits.map(habit => 
-                <li key={habit.id}>{habit.name} 
-                <button onClick={() => toggle(habit.id)}>Done</button> 
+                <li className="habit-item" key={habit.id}>{habit.name} 
+                <button className="done-btn" onClick={() => toggle(habit.id)}>Done</button> 
                 🔥 {streakCalc(habit.completedDates)}
+                <div className="dots-row">
                 {getLast7days().map(date => 
                     habit.completedDates.includes(date) ? <span key={date}>●</span> :<span key={date}>○</span>
                 )}
-                <button onClick={() => deleteHabit(habit.id)}>Delete</button>
+                </div>
+                <button className="delete-btn" onClick={() => deleteHabit(habit.id)}>Delete</button>
                 </li>
                 )}
             </ul>

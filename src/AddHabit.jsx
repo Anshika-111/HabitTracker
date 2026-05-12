@@ -7,9 +7,8 @@ function AddHabit({onAdd}){
     }
     return(
         <div>
-            <h1>Add Habit Works</h1>
-            <input value={input} onChange = {(e) => setInput(e.target.value)} placeholder="Add a Habit..."/>
-            <button onClick={handleSubmit}>Add</button>
+            <input className= "habit-input" value={input} onChange = {(e) => setInput(e.target.value)} placeholder="Add a Habit..."/>
+            <button className="add-btn" onClick={handleSubmit}>Add</button>
         </div>
     )
 }
