@@ -1,4 +1,8 @@
+import { getCompletions } from "./api"
+import { useState, useEffect } from "react"
+
 function HabitList({habits, toggle, deleteHabit}){
+    const [completions, setCompletions] = useState({})
     function streakCalc(dates){
         let streak = 0
         let currentDate = new Date()
@@ -34,7 +38,7 @@ function HabitList({habits, toggle, deleteHabit}){
                 )}
                 </div>
                 🔥 {streakCalc(habit.completedDates)}
-                <button className="done-btn" onClick={() => toggle(habit.id)}>Done</button> 
+                <button className="done-btn" onClick={() => toggle(habit.id, new Date().toDateString())}>Done</button> 
                 <button className="delete-btn" onClick={() => deleteHabit(habit.id)}>Delete</button>
                 </li>
                 )}
